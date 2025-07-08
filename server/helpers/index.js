@@ -9,7 +9,7 @@ const getModelPopulationAttributes = (model) => {
   return model.attributes;
 };
 
-const getFullPopulateObject = (modelUid, maxDepth = 20, ignore) => {
+const getFullPopulateObject = (modelUid, maxDepth = 20, ignore = []) => {
   const skipCreatorFields = strapi
       .plugin("strapi-plugin-populate-deep")
       ?.config("skipCreatorFields");
