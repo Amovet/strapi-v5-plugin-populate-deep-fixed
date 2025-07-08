@@ -1,10 +1,10 @@
-Strapi v5 Plugin Populate Deep (Fixed Fork)
+#Strapi v5 Plugin Populate Deep (Fixed Fork)
 
 This is a fixed version of the strapi-v5-plugin-populate-deep plugin for Strapi v5.
 
 The plugin allows you to easily and deeply populate related data in your API requests using a simple pLevel parameter, saving you from having to manually write complex populate objects.
 
-🛠️ What Was Fixed?
+🛠️ hat Was Fixed?
 
 This package is a fork of the original strapi-v5-plugin-populate-deep plugin.
 
@@ -18,7 +18,10 @@ The issue was caused by the state for tracking processed models being shared acr
 
 Bash
 
-npm install @amovet/strapi-v5-plugin-populate-deep
+
+    npm install @amovet/strapi-v5-plugin-populate-deep
+
+
 
 🚀 Usage
 
@@ -27,13 +30,17 @@ npm install @amovet/strapi-v5-plugin-populate-deep
 To activate the plugin, add it to your config/plugins.js configuration file.
 JavaScript
 
-// ./config/plugins.js
 
-module.exports = ({ env }) => ({
-  '@amovet/strapi-v5-plugin-populate-deep': {
-    enabled: true,
-  },
-});
+
+    ./config/plugins.js
+    
+    module.exports = ({ env }) => ({  
+      '@amovet/strapi-v5-plugin-populate-deep': {
+        enabled: true,
+        },
+    });
+    
+
 
 2. Usage in API Requests
 
@@ -42,9 +49,9 @@ Simply add the pLevel=<depth> parameter to any GET request for a collection or a
 Example:
 
 To get articles entries with all related data populated up to 3 levels deep, use the following request:
-HTTP
 
-GET /api/articles?pLevel=3
+    GET /api/articles?pLevel=3
+
 
 This will automatically populate all relations, components, and dynamic zones up to the specified level.
 
