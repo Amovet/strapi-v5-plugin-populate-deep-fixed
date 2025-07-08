@@ -1,10 +1,10 @@
-#Strapi v5 Plugin Populate Deep (Fixed Fork)
+# Strapi v5 Plugin Populate Deep (Fixed Fork)
 
 This is a fixed version of the strapi-v5-plugin-populate-deep plugin for Strapi v5.
 
 The plugin allows you to easily and deeply populate related data in your API requests using a simple pLevel parameter, saving you from having to manually write complex populate objects.
 
-🛠️ hat Was Fixed?
+## Why this Fork?
 
 This package is a fork of the original strapi-v5-plugin-populate-deep plugin.
 
@@ -14,44 +14,52 @@ The original version of the plugin had a logical bug that caused incorrect and i
 The Solution:
 The issue was caused by the state for tracking processed models being shared across all branches of the recursion. In this version, the bug is fixed: a copy of the state is now passed to each recursive call. This ensures correct, predictable, and complete data population at any nesting level.
 
-⚙️ Installation
+# Installation
 
-Bash
+`npm install @amovet/strapi-v5-plugin-populate-deep`
 
-
-    npm install @amovet/strapi-v5-plugin-populate-deep
-
+`yarn add  @amovet/strapi-v5-plugin-populate-deepp`
 
 
-🚀 Usage
+# Usages
 
 1. Enabling the Plugin
 
 To activate the plugin, add it to your config/plugins.ts configuration file.
 JavaScript
 
+## Examples
 
+1. Populate a request with the default max depth.
+   `/api/articles?pLevel`
 
-    module.exports = ({ env }) => ({  
-      '@amovet/strapi-v5-plugin-populate-deep': {
-        enabled: true,
-        },
-    });
-    
+2. Populate a request with the a custom depth
+   `/api/articles?pLevel=10`
 
+## Good to know
 
-2. Usage in API Requests
+- The default maximum depth is 5 levels deep.
+- The pLevel parameter works for all collections and single types when using findOne and findMany methods.
+- Increasing the depth level may result in longer API response times.
 
-Simply add the pLevel=<depth> parameter to any GET request for a collection or a single entry.
+# Configuration
 
-Example:
+You can configure the default depth globally through the plugin configuration.
 
-To get articles entries with all related data populated up to 3 levels deep, use the following request:
+## Example configuration
 
-    GET /api/articles?pLevel=3
+To customize the default depth, add or modify the config/plugins.js file as shown below:
+`config/plugins.js`
 
-
-This will automatically populate all relations, components, and dynamic zones up to the specified level.
+```
+module.exports = ({ env }) => ({
+  '@amovet/strapi-v5-plugin-populate-deep': {
+    config: {
+      defaultDepth: 3, // Default is 5
+    }
+  },
+});
+```
 
 🙏 Credits
 
@@ -60,3 +68,4 @@ This package is a fixed fork. A huge thanks to the original authors and contribu
     Mustafa ONAL
 
     Christofer Jungberg
+
