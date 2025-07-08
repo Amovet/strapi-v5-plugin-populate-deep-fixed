@@ -1,6 +1,6 @@
 {
   "name": "@amovet/strapi-v5-plugin-populate-deep",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Strapi v5 plugin that populates nested content (Fixed fork).",
   "strapi": {
     "name": "strapi-v5-plugin-populate-deep",
