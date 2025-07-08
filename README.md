@@ -27,13 +27,11 @@ Bash
 
 1. Enabling the Plugin
 
-To activate the plugin, add it to your config/plugins.js configuration file.
+To activate the plugin, add it to your config/plugins.ts configuration file.
 JavaScript
 
 
 
-    ./config/plugins.js
-    
     module.exports = ({ env }) => ({  
       '@amovet/strapi-v5-plugin-populate-deep': {
         enabled: true,
